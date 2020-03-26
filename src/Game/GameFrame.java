@@ -17,38 +17,38 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class GameFrame {
+
+	int rightCount = 0;
+	int wrongCount = 5;
+	static Frame gameplayframe = null;
+
 	public void GamePlayView() {
-		Frame fPlay = new Frame();
-		fPlay.setLayout(null);
-		fPlay.setBounds(700, 200, 400, 600);
+		gameplayframe=new Frame();
+		gameplayframe.setLayout(null);
+		gameplayframe.setBounds(700, 200, 400, 600);
 		Font font = new Font("", Font.BOLD, 20);
-
-		//ImageIcon playImg = new ImageIcon("playImg1.jpg");
-		//JLabel j = new JLabel(playImg);
-
-		//j.setBounds(100, 0, 200, 280);
-
+		
 		//정답, 힌트 불러오기
 		LoadHint lh = new LoadHint();
-		String showHint = lh.showHint(0)+"\n"+lh.showHint(1);
-
+		
 		//위의 코드로 대체 할 영역(이미지 보여지는 칸)
-		Panel test = new Panel();
-		test.setBackground(Color.BLUE);
-		test.setBounds(100, 0, 200, 280);
+		ImageIcon img = new ImageIcon("playimg.jpg");
+		JLabel j = new JLabel(img);
+		j.setBounds(100, 0, 190, 250);
+       
 
 		//힌트가 보여지는 영역
-		TextArea hint = new TextArea(showHint, 0, 290, TextArea.SCROLLBARS_NONE);
-		//hint.setBackground(Color.YELLOW);
+		TextArea hint = new TextArea(lh.showHint(0)+"\n", 0, 290, TextArea.SCROLLBARS_NONE);
 		hint.setEditable(false);
 		hint.setBounds(0, 290, 600, 150);
 
 		//입력한 정답이 보여지는 영역 (_)
-		InAndOut inAout = new InAndOut(lh.getAns());
+		InandOut inAout = new InandOut(lh, hint, lh.getAns(),gameplayframe,j);
 		TextArea showAnswer = new TextArea("", 0, 445, TextArea.SCROLLBARS_NONE);
+		
 		//***
 		showAnswer.setText(inAout.outputString.toString());
-		
+
 		//showAnswer.setBackground(Color.GRAY);
 		showAnswer.setEditable(false);
 		showAnswer.setBounds(0, 445, 600, 90);
@@ -69,47 +69,42 @@ public class GameFrame {
 			//입력한 정답이 showAnswer로 보여짐
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				inAout.check_inputStringRecord(fPlay, tfUser.getText().trim(), lh.getAns());
+				inAout.check_inputStringRecord(gameplayframe, tfUser.getText().trim(), lh.getAns());
 				showAnswer.setText(inAout.outputString.toString());
 				tfUser.setText("");
 				tfUser.requestFocus();
-				
 				inAout.SucAndFail(lh.getAns());
 			}
 		});
-		
+
 		//입력 버튼에 엔터입력키 감지
 		tfUser.addKeyListener( new KeyAdapter() {
 			@Override
 			public void keyTyped(KeyEvent e) {
-				
+
 				if(e.getKeyChar() == KeyEvent.VK_ENTER) {
-					inAout.check_inputStringRecord(fPlay, tfUser.getText().trim(), lh.getAns());
+					inAout.check_inputStringRecord(gameplayframe, tfUser.getText().trim(), lh.getAns());
 					showAnswer.setText(inAout.outputString.toString());
 					tfUser.setText("");
 					tfUser.requestFocus();
-					
 					inAout.SucAndFail(lh.getAns());
 				}
 			}
-			
+
 		});
-		
-		
+
 		//fPlay.add(j);
-		fPlay.setFont(font);
-		fPlay.setResizable(false);
-		fPlay.add(answer);
+		gameplayframe.setFont(font);
+		gameplayframe.setResizable(false);
+		gameplayframe.add(answer);
 
-		fPlay.add(test);
-		fPlay.add(hint);
-		fPlay.add(showAnswer);
+		gameplayframe.add(j);
+		gameplayframe.add(hint);
+		gameplayframe.add(showAnswer);
 
-		fPlay.setVisible(true);
+		gameplayframe.setVisible(true);
 
-
-
-		fPlay.addWindowListener( new WindowAdapter() {   
+		gameplayframe.addWindowListener( new WindowAdapter() {   
 			public void windowClosing(WindowEvent e) {
 				System.exit(0);
 			};
@@ -117,8 +112,8 @@ public class GameFrame {
 
 
 
-	}   
+	}//frame
 
 
-
+	
 }

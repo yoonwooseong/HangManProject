@@ -45,9 +45,8 @@ public class GameStartView {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				//게임 실행
+				gameStartFrame.dispose();
 				gameFrame.GamePlayView();
-				
-				
 			}
 		});
 	      
@@ -58,4 +57,6 @@ public class GameStartView {
 	 	           };
 			});
 	   }
+
+	
 }

@@ -12,6 +12,8 @@ import java.awt.Panel;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.TextEvent;
 import java.awt.event.TextListener;
 import java.awt.event.WindowAdapter;
@@ -69,39 +71,68 @@ public class C_Login_F {
 
 		//로그인 입력버튼 감지
 		btn.addActionListener(new ActionListener() {
-			
+
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				String path = IdInfo_Path.PATH+Id_tf.getText()+"\\"+Id_tf.getText() + ".txt";
-				//FileReader fr = null;
-				File f = new File(path);
-
-				if( !f.exists() ) {
-					JOptionPane.showMessageDialog(loginFrame, "존재하지 않는 Id입니다.\nId를 생성하십시오");
-				}else {
-
-					loginFrame.dispose();
-					mainFrame.dispose();
-
-					GameStartView gsv = new GameStartView();
-					gsv.GameStartView();
-
-				}//else
-
-
-			}
-		});
+					public void actionPerformed(ActionEvent e) {
+						// TODO Auto-generated method stub
+						String path = IdInfo_Path.PATH+Id_tf.getText()+"\\"+Id_tf.getText() + ".txt";
+						//FileReader fr = null;
+						File f = new File(path);
 		
+					if( !f.exists() ) {
+						JOptionPane.showMessageDialog(loginFrame, "존재하지 않는 Id입니다.\nId를 생성하십시오");
+					}else {
+		
+							loginFrame.dispose();
+						mainFrame.dispose();
+		
+							GameStartView gsv = new GameStartView();
+							gsv.GameStartView();
+		
+						}//else
+		
+		
+				}
+			});
+
+
+//		입력 버튼에 엔터입력키 감지
+//		btn.addKeyListener( new KeyAdapter() {
+//			@Override
+//			public void keyTyped(KeyEvent e) {
+//
+//				if(e.getKeyChar()== KeyEvent.VK_ENTER) {
+//					
+//					String path = IdInfo_Path.PATH+Id_tf.getText()+"\\"+Id_tf.getText() + ".txt";
+//					FileReader fr = null;
+//					File f = new File(path);
+//					if( !f.exists() ) {
+//						JOptionPane.showMessageDialog(loginFrame, "존재하지 않는 Id입니다.\nId를 생성하십시오");
+//					}else {
+//
+//						loginFrame.dispose();
+//						mainFrame.dispose();
+//
+//						GameStartView gsv = new GameStartView();
+//						gsv.GameStartView();
+//
+//					}
+//				}
+//			 }
+//
+//		});
+
+
+
 		//종료
 
-				loginFrame.addWindowListener( new WindowAdapter() {	
-					public void windowClosing(WindowEvent e) {
-						loginFrame.dispose();
-					};
-				} );
-		
-	
+		loginFrame.addWindowListener( new WindowAdapter() {	
+			public void windowClosing(WindowEvent e) {
+				loginFrame.dispose();
+			};
+		} );
+
+
 	}
 
 }
