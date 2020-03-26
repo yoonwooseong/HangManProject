@@ -11,15 +11,17 @@ import java.awt.event.WindowEvent;
 import javax.swing.JLabel;
 
 public class PlayEnd {
-
-	public void playEnd(int endTimimg) {
+	WhatTime wt;
+	public void playEnd(int endTimimg, WhatTime wt) {
+		this.wt = wt;
 		Frame playEndFrame = new Frame();
 		playEndFrame.setLayout(null);
 		playEndFrame.setBounds(700, 200, 400, 600);
 		Font font = new Font("", Font.BOLD, 20);
+		int second = wt.getCount();
+		String strSecond = "" + (float)second/10 + "초!!";
 
-		String second = "몇초 인지??";
-		JLabel count = new JLabel(second);//스레드에서 초 불러오기
+		JLabel count = new JLabel(strSecond);//스레드에서 초 불러오기
 		count.setVisible(true);
 		count.setBounds(0, 50, 400, 100);
 		count.setOpaque(true);//배경색
@@ -91,5 +93,6 @@ public class PlayEnd {
 			};
 		});  
 	}
+
 
 }

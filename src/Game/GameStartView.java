@@ -39,6 +39,7 @@ public class GameStartView {
 	      gameStartFrame.setVisible(true);
 	      
 	      GameFrame gameFrame = new GameFrame();
+	      
 	      start.addActionListener(new ActionListener() {
 			
 			@Override

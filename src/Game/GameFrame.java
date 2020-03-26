@@ -23,19 +23,24 @@ public class GameFrame {
 	static Frame gameplayframe = null;
 
 	public void GamePlayView() {
+		//시간 시작!
+		WhatTime wt = new WhatTime();
+		wt.setDaemon(true);
+		wt.start();
+		
 		gameplayframe=new Frame();
 		gameplayframe.setLayout(null);
 		gameplayframe.setBounds(700, 200, 400, 600);
 		Font font = new Font("", Font.BOLD, 20);
-		
+
 		//정답, 힌트 불러오기
 		LoadHint lh = new LoadHint();
-		
+
 		//위의 코드로 대체 할 영역(이미지 보여지는 칸)
 		ImageIcon img = new ImageIcon("playimg.jpg");
 		JLabel j = new JLabel(img);
 		j.setBounds(100, 0, 190, 250);
-       
+
 
 		//힌트가 보여지는 영역
 		TextArea hint = new TextArea(lh.showHint(0)+"\n", 0, 290, TextArea.SCROLLBARS_NONE);
@@ -43,9 +48,9 @@ public class GameFrame {
 		hint.setBounds(0, 290, 600, 150);
 
 		//입력한 정답이 보여지는 영역 (_)
-		InandOut inAout = new InandOut(lh, hint, lh.getAns(),gameplayframe,j);
+		InandOut inAout = new InandOut(lh, hint, lh.getAns(),gameplayframe, j ,wt);
 		TextArea showAnswer = new TextArea("", 0, 445, TextArea.SCROLLBARS_NONE);
-		
+
 		//***
 		showAnswer.setText(inAout.outputString.toString());
 
@@ -115,5 +120,5 @@ public class GameFrame {
 	}//frame
 
 
-	
+
 }

@@ -24,20 +24,21 @@ public class InandOut {
 	   Frame fPlay;
 	   String ans;
 	   JLabel jl;
+	   WhatTime wt;
 	   
 	   public int getWrongCount() {
 	      return wrongCount;
 	   }
 	   
 	   //생성자
-	   public InandOut(LoadHint lh, TextArea hint ,String ans, Frame fPlay, JLabel jl) {
+	   public InandOut(LoadHint lh, TextArea hint ,String ans, Frame fPlay, JLabel jl, WhatTime wt) {
 
-	      
 	      this.hint = hint;
 	      this.lh = lh;
 	      this.fPlay = fPlay;
 	      this.ans=ans;
 	      this.jl = jl;
+	      this.wt = wt;
 	      
 	      rightCount = 0;
 	      wrongCount = 6;
@@ -109,14 +110,14 @@ public class InandOut {
 	    	 
 	         System.out.println("성공!!");
 	         GameFrame.gameplayframe.dispose();
-	         pe.playEnd(SUCCESS);
+	         pe.playEnd(SUCCESS, wt);
 	      }
 	      
 	      //실패
 	      if(wrongCount == 0) {
 	         System.out.println("탈ㄹㄹㄹㄹㄹㄹㄹㄹ락");
 	         //GameFrame.gameplayframe.dispose();
-	         pe.playEnd(WRONG);
+	         pe.playEnd(WRONG, wt);
 	      }
 	   }
 

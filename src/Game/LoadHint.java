@@ -48,9 +48,7 @@ public class LoadHint {
 		return ans;//랜덤 답 값 리턴
 	}
 	
-	
 	//Hint 지정 
-	
 	public void loadHints(String fileName) {
 		FileReader fr = null;
 		BufferedReader br = null;
