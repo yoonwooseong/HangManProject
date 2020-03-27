@@ -38,8 +38,8 @@ public class GameStartView {
 	      gameStartFrame.setResizable(false);
 	      gameStartFrame.setVisible(true);
 	      
-	      GameFrame gameFrame = new GameFrame();
-	      
+	      //GameFrame gameFrame = new GameFrame();
+	      SelectLevel sl = new SelectLevel();
 	      start.addActionListener(new ActionListener() {
 			
 			@Override
@@ -47,7 +47,8 @@ public class GameStartView {
 				// TODO Auto-generated method stub
 				//게임 실행
 				gameStartFrame.dispose();
-				gameFrame.GamePlayView();
+				//gameFrame.GamePlayView();
+				sl.SelectLevelView();
 			}
 		});
 	      

@@ -1,6 +1,5 @@
 package Game;
 
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -8,11 +7,13 @@ import java.io.IOException;
 import java.util.Random;
 
 public class LoadHint {
-
-	String path = "C:\\Web_Project_file\\word\\";
-	File f = new File(path);
+	
+	String path = "";
+	
+	File f;
 	String[] answers = {"", ""};
 	String[] hints = {"", "",""};
+	
 	//String 배열에 든 답 인텍스 랜덤으로 번호 넣기 
 	private int num = new Random().nextInt(answers.length);
 	protected String ans = "";
@@ -25,7 +26,21 @@ public class LoadHint {
 		return num;
 	}
 	
-	public LoadHint() {
+	public LoadHint(int num) {
+		switch (num) {
+		case 1:
+			path = "C:\\Web_Project_file\\word\\level1\\";
+			break;
+		case 2:
+			path = "C:\\Web_Project_file\\word\\Level2\\";
+			break;
+		case 3:
+			path = "C:\\Web_Project_file\\word\\Level3\\";
+			break;
+		default:
+			break;
+		}
+		f = new File(path);
 		loadAnswer();
 		loadHints(selectAns());
 	}

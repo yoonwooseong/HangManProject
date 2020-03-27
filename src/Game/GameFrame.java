@@ -22,7 +22,7 @@ public class GameFrame {
 	int wrongCount = 5;
 	static Frame gameplayframe = null;
 
-	public void GamePlayView() {
+	public void GamePlayView(int level) {
 		//시간 시작!
 		WhatTime wt = new WhatTime();
 		wt.setDaemon(true);
@@ -34,7 +34,7 @@ public class GameFrame {
 		Font font = new Font("", Font.BOLD, 20);
 
 		//정답, 힌트 불러오기
-		LoadHint lh = new LoadHint();
+		LoadHint lh = new LoadHint(level);//여기안에 int값에 따라 난이도(Level)별 문제 출력
 
 		//위의 코드로 대체 할 영역(이미지 보여지는 칸)
 		ImageIcon img = new ImageIcon("playimg.jpg");
