@@ -11,7 +11,7 @@ public class LoadHint {
 	String path = "";
 	
 	File f;
-	String[] answers = {"", ""};
+	String[] answers = new String[2];
 	String[] hints = {"", "",""};
 	
 	//String 배열에 든 답 인텍스 랜덤으로 번호 넣기 

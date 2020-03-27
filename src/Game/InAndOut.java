@@ -44,6 +44,7 @@ public class InandOut {
 		this.saveAph = new char[ans.length()];
 		rightCount = 0;
 		wrongCount = 6;
+		
 		for(int i = 0; i < ans.length(); i++) {
 			outputString.append("*");
 		}
@@ -51,7 +52,8 @@ public class InandOut {
 
 
 	public void check_inputStringRecord( Frame fPlay, String input, String ans){
-		
+		//**
+		EffectImage ei = new EffectImage(jl);
 		if(input.charAt(0) < 'a' || input.charAt(0) > 'z' || input.length() > 1) {
 			//영 소문자 잘 입력하지 못하면
 			JOptionPane.showMessageDialog(fPlay, "영 소문자 한개를 입력해주세요.");
@@ -66,7 +68,10 @@ public class InandOut {
 
 				switch (wrongCount) {
 				case 5:
-					jl.setIcon(new ImageIcon("case4.jpg"));
+					//**
+					ei.setDaemon(true);
+					ei.start();
+					//jl.setIcon(new ImageIcon("case4.jpg"));
 					break;
 				case 4:
 					jl.setIcon(new ImageIcon("case3.jpg"));

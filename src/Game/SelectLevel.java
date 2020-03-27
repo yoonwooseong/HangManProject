@@ -1,12 +1,16 @@
 package Game;
 
 import java.awt.Button;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 public class SelectLevel {
 
@@ -15,24 +19,35 @@ public class SelectLevel {
 		Frame selectLevelView = new Frame();
 		selectLevelView.setLayout(null);
 		selectLevelView.setBounds(700, 200, 400, 600);
-		Font font = new Font("", Font.BOLD, 20);
+		Font font = new Font(Font.SANS_SERIF, Font.BOLD, 20);
+
+		ImageIcon viewImg = new ImageIcon("gameStartView.png");
+		JLabel jimg = new JLabel(viewImg);
+		jimg.setBounds(42, 110, 320, 220);
+
+		JLabel jl = new JLabel("Level을 선택해주세요.");
+		jl.setBounds(0, 350, 400, 50);
+		jl.setFont(font);
+		jl.setHorizontalAlignment(JLabel.CENTER);
 
 		Button Level1 = new Button(" Level 1 ");
-		Level1.setBounds(130, 50, 150, 60);
+		Level1.setBounds(15, 400, 110, 60);
 		Level1.setFont(font);
 
 		Button Level2 = new Button(" Level 2 ");
-		Level2.setBounds(130, 250, 150, 60);
+		Level2.setBounds(145, 400, 110, 60);
 		Level2.setFont(font);
 
 		Button Level3 = new Button(" Level 3 ");
-		Level3.setBounds(130, 450, 150, 60);
+		Level3.setBounds(275, 400, 110, 60);
 		Level3.setFont(font);
 
+		selectLevelView.add(jimg);
+		selectLevelView.add(jl);
 		selectLevelView.add(Level1);
 		selectLevelView.add(Level2);
 		selectLevelView.add(Level3);
-
+		
 		selectLevelView.setFont(font);
 		selectLevelView.setResizable(false);
 		selectLevelView.setVisible(true);
