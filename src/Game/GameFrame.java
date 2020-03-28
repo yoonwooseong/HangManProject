@@ -16,13 +16,16 @@ import java.awt.event.WindowEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import CheckScore.UserScoreInfo;
+
 public class GameFrame {
 
 	int rightCount = 0;
 	int wrongCount = 5;
 	static Frame gameplayframe = null;
 
-	public void GamePlayView(int level) {
+	public void GamePlayView(int level, UserScoreInfo usInfo) {
+		
 		//시간 시작!
 		WhatTime wt = new WhatTime();
 		wt.setDaemon(true);
@@ -34,13 +37,12 @@ public class GameFrame {
 		Font font = new Font("", Font.BOLD, 20);
 
 		//정답, 힌트 불러오기
-		LoadHint lh = new LoadHint(level);//여기안에 int값에 따라 난이도(Level)별 문제 출력
+		LoadHint lh = new LoadHint(level); //여기안에 int값에 따라 난이도(Level)별 문제 출력
 
 		//위의 코드로 대체 할 영역(이미지 보여지는 칸)
-		ImageIcon img = new ImageIcon("playimg.jpg");
-		JLabel j = new JLabel(img);
+		ImageIcon img = new ImageIcon("playimg.jpg");//**첨부 이미지2 - 건강한 행맨이 걸려있는 사진!
+		JLabel j = new JLabel(img);					 //힘내용~
 		j.setBounds(100, 0, 190, 250);
-
 
 		//힌트가 보여지는 영역
 		TextArea hint = new TextArea(lh.showHint(0)+"\n", 0, 290, TextArea.SCROLLBARS_NONE);
@@ -78,7 +80,7 @@ public class GameFrame {
 				showAnswer.setText(inAout.outputString.toString());
 				tfUser.setText("");
 				tfUser.requestFocus();
-				inAout.SucAndFail(lh.getAns());
+				inAout.SucAndFail(lh.getAns(),usInfo);
 			}
 		});
 
@@ -92,7 +94,7 @@ public class GameFrame {
 					showAnswer.setText(inAout.outputString.toString());
 					tfUser.setText("");
 					tfUser.requestFocus();
-					inAout.SucAndFail(lh.getAns());
+					inAout.SucAndFail(lh.getAns(),usInfo);
 				}
 			}
 
@@ -115,10 +117,6 @@ public class GameFrame {
 			};
 		} );
 
-
-
 	}//frame
-
-
 
 }

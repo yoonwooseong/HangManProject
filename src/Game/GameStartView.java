@@ -15,40 +15,58 @@ import java.awt.event.WindowListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import CheckScore.CheckScoreFrame;
+import CheckScore.UserScoreInfo;
+
 public class GameStartView {
 
-	public void GameStartView() {
+	public void GameStartView(UserScoreInfo usInfo) {
 
 		Frame gameStartFrame = new Frame();
 		gameStartFrame.setLayout(null);
-		gameStartFrame.setBounds(700, 200, 400, 600);
+		gameStartFrame.setBounds(500, 100, 400, 600);
 		Font font = new Font("", Font.BOLD, 20);
 
-		ImageIcon mainimg = new ImageIcon("gameStartView.png");
+		ImageIcon mainimg = new ImageIcon("gameStartView.png"); //*이미지 첨부1
 		JLabel j1 = new JLabel(mainimg);
 		j1.setBounds(42, 110, 320, 220);
 
 		Button start = new Button("게임 시작");
-		start.setBounds(125, 390, 150, 60);
+		start.setBounds(130, 350, 150, 60);
 		start.setFont(font);
+
+		Button rank = new Button("누적 보기");
+		rank.setBounds(130,450,150,60);
+		rank.addActionListener(new ActionListener() {
+
+			CheckScoreFrame csFrame = new CheckScoreFrame();
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+
+				csFrame.scoreFrame(usInfo);
+
+			}
+		});
 
 		gameStartFrame.add(start);
 		gameStartFrame.add(j1);
 		gameStartFrame.setFont(font);
+		gameStartFrame.add(rank);
 		gameStartFrame.setResizable(false);
 		gameStartFrame.setVisible(true);
 
 		//GameFrame gameFrame = new GameFrame();
-		SelectLevel sl = new SelectLevel();
 		start.addActionListener(new ActionListener() {
 
+			SelectLevel sl = new SelectLevel();
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				//게임 실행
 				gameStartFrame.dispose();
 				//gameFrame.GamePlayView();
-				sl.SelectLevelView();
+				sl.SelectLevelView(usInfo);
 			}
 		});
 

@@ -1,1 +1,0 @@
-Hint1 : animal/Hint2 : 4 leg

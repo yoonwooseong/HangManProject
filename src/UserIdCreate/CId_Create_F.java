@@ -10,6 +10,8 @@ import java.awt.Panel;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.TextEvent;
 import java.awt.event.TextListener;
 import java.awt.event.WindowAdapter;
@@ -26,7 +28,7 @@ public class CId_Create_F {
 		IdInfo_Path uPath = new IdInfo_Path();
 
 		Frame id_createFrame = new Frame("아이디 생성 페이지");
-		id_createFrame.setBounds(700, 400 ,400, 200);
+		id_createFrame.setBounds(500, 250 ,400, 200);
 		id_createFrame.setLayout(null);
 		id_createFrame.setResizable(false);
 
@@ -43,10 +45,10 @@ public class CId_Create_F {
 		//아이디 입력 칸 생성
 		TextField id = new TextField(15);
 		id.setText(null);
-		
+
 		//등록 버튼생성 
-				Button save=new Button("등록");
-				save.setEnabled(false);
+		Button save=new Button("등록");
+		save.setEnabled(false);
 
 		//텍스트 영역 활성화 
 		id.addTextListener(new TextListener() {
@@ -66,28 +68,38 @@ public class CId_Create_F {
 		//버튼 클릭시 중복 값 있으면 ->중복 ID 재입력!
 		//중복 없으면 바로 아이디 생성
 		CId_CreateWrite cWrite = new CId_CreateWrite();
+
+		//클릭 감지
 		save.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-
 				cWrite.infoWrite(uPath, id, id_createFrame);
 
 			} 
 		});
-		
-		
+
+		//엔터감지
+		id.addKeyListener( new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+
+				if(e.getKeyChar() == KeyEvent.VK_ENTER) {
+					cWrite.infoWrite(uPath, id, id_createFrame);
+				}
+
+			}
+		});
+
 		pCenter.add(id);
 		pCenter.add(save);
 		id_createFrame.add(mainlabel);
 		id_createFrame.add(pCenter,BorderLayout.CENTER);
 		id_createFrame.setVisible(true);
-		
-		
-		
-		//종료
 
+
+		//종료
 		id_createFrame.addWindowListener( new WindowAdapter() {	
 			public void windowClosing(WindowEvent e) {
 				id_createFrame.dispose();

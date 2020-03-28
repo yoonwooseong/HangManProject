@@ -9,14 +9,19 @@ import java.util.Random;
 public class LoadHint {
 	
 	String path = "";
+	int levelNum;
 	
 	File f;
-	String[] answers = new String[2];
+	String[] answers;
 	String[] hints = {"", "",""};
 	
-	//String 배열에 든 답 인텍스 랜덤으로 번호 넣기 
-	private int num = new Random().nextInt(answers.length);
-	protected String ans = "";
+	//String 배열에 든 답 인텍스 랜덤으로 번호 넣는 숫자
+	private int num;
+	protected String ans; //답
+
+	public int getLevelNum() {
+		return levelNum;
+	}
 
 	public String getAns() {
 		return ans;
@@ -27,6 +32,7 @@ public class LoadHint {
 	}
 	
 	public LoadHint(int num) {
+		this.levelNum = num;
 		switch (num) {
 		case 1:
 			path = "C:\\Web_Project_file\\word\\level1\\";
@@ -41,12 +47,18 @@ public class LoadHint {
 			break;
 		}
 		f = new File(path);
+		answers = new String[f.list().length];		//Level별 폴더 안 파일의 갯수만큼 배열 생성
+		num = new Random().nextInt(answers.length); //그 배열안의 문제들 중 하나를 랜덤으로 선정하기 위한 숫자 
+		ans = "";
+		
 		loadAnswer();
 		loadHints(selectAns());
+		
 	}
 	
 	//접근한 디렉토리 안에 있는 하위 요소들의 이름 중 문제로 하나 선정
 	public void loadAnswer() {
+		
 		if( f.isDirectory() ) {
 
 			String[] names = f.list();
@@ -65,6 +77,7 @@ public class LoadHint {
 	
 	//Hint 지정 
 	public void loadHints(String fileName) {
+		
 		FileReader fr = null;
 		BufferedReader br = null;
 

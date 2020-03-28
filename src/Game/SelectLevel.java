@@ -12,9 +12,12 @@ import java.awt.event.WindowEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import CheckScore.ScoreLoader;
+import CheckScore.UserScoreInfo;
+
 public class SelectLevel {
 
-	public void SelectLevelView() {
+	public void SelectLevelView(UserScoreInfo usInfo) {
 
 		Frame selectLevelView = new Frame();
 		selectLevelView.setLayout(null);
@@ -47,7 +50,7 @@ public class SelectLevel {
 		selectLevelView.add(Level1);
 		selectLevelView.add(Level2);
 		selectLevelView.add(Level3);
-		
+
 		selectLevelView.setFont(font);
 		selectLevelView.setResizable(false);
 		selectLevelView.setVisible(true);
@@ -60,8 +63,13 @@ public class SelectLevel {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				//게임 난이도 별 실행
+				int playCount =0;
+				ScoreLoader loader = new ScoreLoader(usInfo);
+				playCount = loader.getInfo().getPlay();
+				usInfo.setPlay(++playCount);
+
 				selectLevelView.dispose();
-				gameFrame.GamePlayView(1);
+				gameFrame.GamePlayView(1,usInfo);
 				//
 			}
 		});
@@ -72,8 +80,13 @@ public class SelectLevel {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				//게임 난이도 별 실행
+				int playCount =0;
+				ScoreLoader loader = new ScoreLoader(usInfo);
+				playCount = loader.getInfo().getPlay();
+				usInfo.setPlay(++playCount);
+
 				selectLevelView.dispose();
-				gameFrame.GamePlayView(2);
+				gameFrame.GamePlayView(2,usInfo);
 				//
 			}
 		});
@@ -84,8 +97,13 @@ public class SelectLevel {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				//게임 난이도 별 실행
+				int playCount =0;
+				ScoreLoader loader = new ScoreLoader(usInfo);
+				playCount = loader.getInfo().getPlay();
+				usInfo.setPlay(++playCount);
+
 				selectLevelView.dispose();
-				gameFrame.GamePlayView(3);
+				gameFrame.GamePlayView(3,usInfo);
 				//
 			}
 		});
