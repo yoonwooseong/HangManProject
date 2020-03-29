@@ -22,7 +22,7 @@ public class CId_CreateWrite  {
 		File dir2 = new File(dir1,id.getText());
 		if(!dir2.exists()) {
 			dir2.mkdirs();
-			//}
+			
 
 			FileOutputStream fos = null;
 			BufferedOutputStream bos = null;

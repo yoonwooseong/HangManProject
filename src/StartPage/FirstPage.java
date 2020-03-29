@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import CheckScore.UserScoreInfo;
+import Sound.BGM;
 import UserLogin.C_Login_F;
 import UserLogin.*;
 public class FirstPage {
@@ -24,7 +25,11 @@ public class FirstPage {
 
 		Frame mainframe = new Frame("Hangman game");
 		UserScoreInfo usInfo = new UserScoreInfo();
-
+		
+		BGM bgm = new BGM();
+		bgm.setDaemon(true);
+		bgm.start();
+		
 		mainframe.setLayout(null);
 		mainframe.setBounds(500, 100, 400, 600);
 		Font font = new Font("",Font.BOLD,20);
