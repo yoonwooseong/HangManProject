@@ -18,23 +18,21 @@ public class CId_CreateWrite  {
 		File dir1 = new File(IdInfo_Path.PATH);
 		if(!dir1.exists()) {
 			dir1.mkdirs();
-			 }
-			File dir2 = new File(dir1,id.getText());
-			if(!dir2.exists()) {
-				dir2.mkdirs();
+		}
+		File dir2 = new File(dir1,id.getText());
+		if(!dir2.exists()) {
+			dir2.mkdirs();
 			//}
 
 			FileOutputStream fos = null;
 			BufferedOutputStream bos = null;
-			int code = 0;
-
+			//int code = 0;
+			
 			try {
 
 				fos = new FileOutputStream(path);
 				bos = new BufferedOutputStream(fos);
 
-
-			
 				bos.write(id.getText().getBytes());
 				System.out.println("정보저장성공");
 				JOptionPane.showMessageDialog(id_createFrame, "가입 성공");
@@ -51,13 +49,12 @@ public class CId_CreateWrite  {
 					// TODO: handle exception
 				}
 			}
-			}else {
-				
-				JOptionPane.showMessageDialog(id_createFrame, "중복된아이디입니다.");
-				
-			}
+		}else {
+
+			JOptionPane.showMessageDialog(id_createFrame, "중복된아이디입니다.");
+
+		}
 
 	}
-
 
 }

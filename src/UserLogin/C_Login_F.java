@@ -24,8 +24,10 @@ import java.io.FileReader;
 
 import javax.swing.JOptionPane;
 
+import CheckScore.UserScoreInfo;
+
 public class C_Login_F {
-	public void logInFrame(Frame mainFrame) {
+	public void logInFrame(Frame mainFrame, UserScoreInfo usInfo) {
 
 		//id입력 프레임
 		Frame loginFrame = new Frame("LogIn");
@@ -68,62 +70,66 @@ public class C_Login_F {
 				}
 			}
 		});
+		//로그인 엔터 감지
+		Id_tf.addKeyListener( new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+
+				if(e.getKeyChar() == KeyEvent.VK_ENTER) {
+					// TODO Auto-generated method stub
+
+					String path = IdInfo_Path.PATH+Id_tf.getText()+"\\"+Id_tf.getText() + ".txt";
+					File f = new File(path);
+
+					if( !f.exists() ) {
+						JOptionPane.showMessageDialog(loginFrame, "존재하지 않는 Id입니다.\nId를 생성하십시오");
+						loginFrame.dispose();
+					}else {
+
+						usInfo.setId(Id_tf.getText());
+
+						loginFrame.dispose();
+						mainFrame.dispose();
+
+						GameStartView gsv = new GameStartView();
+						gsv.GameStartView(usInfo);
+
+					}//else
 
 
-		//로그인 입력버튼 감지
+				}
+			}
+		});
+
+		//로그인 버튼 클릭 감지
 		btn.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				// TODO Auto-generated method stub
 				String path = IdInfo_Path.PATH+Id_tf.getText()+"\\"+Id_tf.getText() + ".txt";
-				//FileReader fr = null;
+				FileReader fr = null;
 				File f = new File(path);
-
+				
 				if( !f.exists() ) {
 					JOptionPane.showMessageDialog(loginFrame, "존재하지 않는 Id입니다.\nId를 생성하십시오");
-				}else {
+					loginFrame.dispose();
+				} else {
+
+					usInfo.setId(Id_tf.getText());
 
 					loginFrame.dispose();
 					mainFrame.dispose();
 
 					GameStartView gsv = new GameStartView();
-					gsv.GameStartView();
+					gsv.GameStartView(usInfo);
 
 				}//else
 
-
 			}
+			
 		});
-
-
-		//		입력 버튼에 엔터입력키 감지
-		//		btn.addKeyListener( new KeyAdapter() {
-		//			@Override
-		//			public void keyTyped(KeyEvent e) {
-		//
-		//				if(e.getKeyChar()== KeyEvent.VK_ENTER) {
-		//					
-		//					String path = IdInfo_Path.PATH+Id_tf.getText()+"\\"+Id_tf.getText() + ".txt";
-		//					FileReader fr = null;
-		//					File f = new File(path);
-		//					if( !f.exists() ) {
-		//						JOptionPane.showMessageDialog(loginFrame, "존재하지 않는 Id입니다.\nId를 생성하십시오");
-		//					}else {
-		//
-		//						loginFrame.dispose();
-		//						mainFrame.dispose();
-		//
-		//						GameStartView gsv = new GameStartView();
-		//						gsv.GameStartView();
-		//
-		//					}
-		//				}
-		//			 }
-		//
-		//		});
-
-
 
 		//종료
 

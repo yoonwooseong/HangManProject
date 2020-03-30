@@ -12,21 +12,24 @@ import java.awt.event.WindowEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import CheckScore.ScoreLoader;
+import CheckScore.UserScoreInfo;
+
 public class SelectLevel {
 
-	public void SelectLevelView() {
+	public void SelectLevelView(UserScoreInfo usInfo) {
 
 		Frame selectLevelView = new Frame();
 		selectLevelView.setLayout(null);
 		selectLevelView.setBounds(700, 200, 400, 600);
-		Font font = new Font(Font.SANS_SERIF, Font.BOLD, 20);
+		Font font = new Font(Font.SANS_SERIF, Font.BOLD, 22);
 
-		ImageIcon viewImg = new ImageIcon("gameStartView.png");
+		ImageIcon viewImg = new ImageIcon("gameview_img.jpg");
 		JLabel jimg = new JLabel(viewImg);
-		jimg.setBounds(42, 110, 320, 220);
+		jimg.setBounds(42, 100, 320, 220);
 
 		JLabel jl = new JLabel("Level을 선택해주세요.");
-		jl.setBounds(0, 350, 400, 50);
+		jl.setBounds(0, 330, 400, 50);
 		jl.setFont(font);
 		jl.setHorizontalAlignment(JLabel.CENTER);
 
@@ -47,7 +50,7 @@ public class SelectLevel {
 		selectLevelView.add(Level1);
 		selectLevelView.add(Level2);
 		selectLevelView.add(Level3);
-		
+
 		selectLevelView.setFont(font);
 		selectLevelView.setResizable(false);
 		selectLevelView.setVisible(true);
@@ -60,8 +63,13 @@ public class SelectLevel {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				//게임 난이도 별 실행
+				int playCount =0;
+				ScoreLoader loader = new ScoreLoader(usInfo);
+				playCount = loader.getInfo().getPlay();
+				usInfo.setPlay(++playCount);
+
 				selectLevelView.dispose();
-				gameFrame.GamePlayView(1);
+				gameFrame.GamePlayView(1,usInfo);
 				//
 			}
 		});
@@ -72,8 +80,13 @@ public class SelectLevel {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				//게임 난이도 별 실행
+				int playCount =0;
+				ScoreLoader loader = new ScoreLoader(usInfo);
+				playCount = loader.getInfo().getPlay();
+				usInfo.setPlay(++playCount);
+
 				selectLevelView.dispose();
-				gameFrame.GamePlayView(2);
+				gameFrame.GamePlayView(2,usInfo);
 				//
 			}
 		});
@@ -84,8 +97,13 @@ public class SelectLevel {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				//게임 난이도 별 실행
+				int playCount =0;
+				ScoreLoader loader = new ScoreLoader(usInfo);
+				playCount = loader.getInfo().getPlay();
+				usInfo.setPlay(++playCount);
+
 				selectLevelView.dispose();
-				gameFrame.GamePlayView(3);
+				gameFrame.GamePlayView(3,usInfo);
 				//
 			}
 		});

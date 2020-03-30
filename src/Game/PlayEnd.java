@@ -8,57 +8,66 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
+import CheckScore.CheckScoreFrame;
+import CheckScore.UserScoreInfo;
 
 public class PlayEnd {
 	WhatTime wt;
-	public void playEnd(int endTimimg, WhatTime wt) {
-		this.wt = wt;
+	public void playEnd(int endTimimg, WhatTime wt, UserScoreInfo usInfo) {
+
 		Frame playEndFrame = new Frame();
 		playEndFrame.setLayout(null);
 		playEndFrame.setBounds(700, 200, 400, 600);
 		Font font = new Font("", Font.BOLD, 20);
-		int second = wt.getCount();
-		String strSecond = "" + (float)second/10 + "초!!";
 
-		JLabel count = new JLabel(strSecond);//스레드에서 초 불러오기
+		this.wt = wt;
+		int time = wt.getCount();
+		
+		String whatSecond = "";
+		JLabel count = new JLabel(whatSecond);//스레드에서 초 불러오기		
 		count.setVisible(true);
-		count.setBounds(0, 50, 400, 100);
-		count.setOpaque(true);//배경색
-		count.setBackground(Color.WHITE);
+		count.setBounds(0, 30, 400, 50);
 		count.setHorizontalAlignment(JLabel.CENTER);//폰트 가운데정렬
 		count.setFont(font);
+		
+		String strSecond = "" + (float)time/10 + "초!!";
+		Font fonttimecount = new Font("", Font.BOLD, 40);
 
+		JLabel timecount = new JLabel(strSecond);//스레드에서 초 불러오기
+		timecount.setFont(fonttimecount);
+		timecount.setVisible(true);
+		timecount.setBounds(0, 100, 400, 100);
+		timecount.setHorizontalAlignment(JLabel.CENTER);//폰트 가운데정렬
+		
+		
 		//성공 했을 때 문자열
-		if(endTimimg == 1) {           
-			String success = "축하합니다 성공!";
-			JLabel endSuccess = new JLabel(success);          
-			endSuccess.setVisible(true);
+		if(endTimimg == 1) {  
+			
+			ImageIcon successImg = new ImageIcon("success_color.jpg");
+			JLabel endSuccess = new JLabel(successImg);
 			endSuccess.setBounds(0, 200, 400, 150);
-			endSuccess.setOpaque(true);
-			endSuccess.setBackground(Color.yellow);
-			endSuccess.setHorizontalAlignment(JLabel.CENTER);
-			endSuccess.setFont(font); 
-			playEndFrame.add(endSuccess);           
+			playEndFrame.add(endSuccess);
+			
 		}
 
 		//실패 했을 때 문자열
 		if(endTimimg == 2) {
-			String fail = "실패...다시 도전하세요";
-			JLabel endFail = new JLabel(fail);
-			endFail.setVisible(true);           
+			
+			ImageIcon failImg = new ImageIcon("failed_color.jpg");
+			JLabel endFail = new JLabel(failImg);
 			endFail.setBounds(0, 200, 400, 150);
-			endFail.setOpaque(true);
-			endFail.setBackground(Color.lightGray);
-			endFail.setHorizontalAlignment(JLabel.CENTER);
-			endFail.setFont(font);
 			playEndFrame.add(endFail);
+			
 		}
 
 
 
 		Button replay = new Button("다시 하기");
-		replay.setBounds(210, 420, 170, 90);
+		replay.setBounds(220, 420, 150, 60);
+		replay.setFont(font);
 		replay.addActionListener(new ActionListener() {
 			GameStartView gvs = new GameStartView();
 
@@ -67,23 +76,40 @@ public class PlayEnd {
 
 				GameFrame.gameplayframe.dispose();
 				playEndFrame.dispose();
-				gvs.GameStartView();
+				gvs.GameStartView(usInfo);
 
 			}
 		});
 
 
-		Button lank = new Button("랭킹 확인");
-		lank.setBounds(20, 420, 170, 90);
-
+		Button lank = new Button("승률 보기");
+		lank.setBounds(30, 420, 150, 60);
+		lank.setFont(font);
+		
+		//playEndFrame에 추가
 		playEndFrame.setFont(font);
 		playEndFrame.add(count);
 		playEndFrame.add(lank);
 		playEndFrame.add(replay);
+		playEndFrame.setFont(fonttimecount);
+        playEndFrame.add(timecount);
+		
 		playEndFrame.setResizable(false);
 		playEndFrame.setVisible(true);
 
-
+		CheckScoreFrame checkScoreFrame = new CheckScoreFrame();
+        
+        lank.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				playEndFrame.dispose();
+				checkScoreFrame.scoreFrame(usInfo);
+				
+				
+			}
+		});
 
 		//종료
 		playEndFrame.addWindowListener(new WindowAdapter() {
