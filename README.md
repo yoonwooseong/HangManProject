@@ -3,7 +3,6 @@
 
 우리가 배운 JAVA언어를 가지고 구현할 수 있는 기능들을 최대한 활용해 하나의 게임을 구현하고자 알파벳 갯수에 따른 단어를 맞추는 행맨게임을 UI를 통해 구현하고자 하였다.
 
-![시작화면](https://user-images.githubusercontent.com/57824259/87865507-50c98580-c9b1-11ea-8a8a-a342742edc6c.png)
 <img class="startPage" width="300" alt="startPage" title="startPage"
        src="https://user-images.githubusercontent.com/57824259/78157201-a87fc780-747a-11ea-9fb9-3113e3bf02c9.png">
 
