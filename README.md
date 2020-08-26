@@ -13,7 +13,7 @@
 ## Screenshots 및 기능
 
 <div>
-  <img class="startPage" width="300" alt="startPage" title="startPage"
+  <img class="startPage" width="150" alt="startPage" title="startPage"
        src="https://user-images.githubusercontent.com/57824259/78157201-a87fc780-747a-11ea-9fb9-3113e3bf02c9.png">
   <img class="createID" width="300" alt="createID" title="createID"
        src="https://user-images.githubusercontent.com/57824259/78157645-2ba11d80-747b-11ea-9676-85d36b6271c7.png">
@@ -51,9 +51,9 @@ npm test
 
  yoonwooseong – dntjd851@naver.com
 
-XYZ 라이센스를 준수하며 ``LICENSE``에서 자세한 정보를 확인할 수 있습니다.
+MIT 라이센스를 준수하며 ``LICENSE``에서 자세한 정보를 확인할 수 있습니다.
 
-[https://github.com/yourname/github-link](https://github.com/dbader/)
+[https://github.com/yoonwooseong/github-link](https://github.com/yoonwooseong/)
 
 ## 기여 방법
 
