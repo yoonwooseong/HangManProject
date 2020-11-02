@@ -12,7 +12,7 @@ import javax.swing.SwingUtilities;
 public class BGM extends Thread{
 	@Override
 	public void run() {
-		File f = new File("C:\\Web_Project_file\\BGM\\Late_Night_Drive.wav\\");
+		File f = new File("C:\\Users\\user\\hangman\\Web_Project_file\\BGM\\Late_Night_Drive.wav\\");
 		Clip clip;
 		try {
 			clip = AudioSystem.getClip();

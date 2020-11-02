@@ -12,7 +12,7 @@ import CheckScore.ScoreWriter;
 import CheckScore.UserScoreInfo;
 
 
-public class InandOut {
+public class InAndOut {
 	
 	StringBuffer outputString = new StringBuffer(); //플레이어의 입력에 따른 결과로 보여줄 문자열
 	String playerInputString;
@@ -36,7 +36,7 @@ public class InandOut {
 	}
 
 	//생성자
-	public InandOut(LoadHint lh, TextArea hint ,String ans, Frame fPlay, JLabel jl, WhatTime wt) {
+	public InAndOut(LoadHint lh, TextArea hint ,String ans, Frame fPlay, JLabel jl, WhatTime wt) {
 
 		this.hint = hint;
 		this.lh = lh;

@@ -50,7 +50,7 @@ public class GameFrame {
 		hint.setBounds(0, 290, 600, 150);
 
 		//입력한 정답이 보여지는 영역 (_)
-		InandOut inAout = new InandOut(lh, hint, lh.getAns(),gameplayframe, j ,wt);
+		InAndOut inAout = new InAndOut(lh, hint, lh.getAns(),gameplayframe, j ,wt);
 		TextArea showAnswer = new TextArea("", 0, 445, TextArea.SCROLLBARS_NONE);
 
 		//***
