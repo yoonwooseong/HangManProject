@@ -35,10 +35,10 @@
 
 ## 구현  
 
-BGM, IMAGE, GAMETIME(문제 푸는데 걸린 시간) - Thread 사용
-힌트 및 난이도별 문제 가져오기 - File, Random
-플레이어 입력 및 문제맞춤 여부 - StringBuffer & 알고리즘 구현(일치시 문자열 replace)
-입력 버튼 - KeyAdapter()
+ - BGM, IMAGE, GAMETIME(문제 푸는데 걸린 시간) - Thread 사용  
+ - 힌트 및 난이도별 문제 가져오기 - File, Random  
+ - 플레이어 입력 및 문제맞춤 여부 - StringBuffer & 알고리즘 구현(일치시 문자열 replace)  
+ - 입력 버튼 - KeyAdapter()  
 
 ## 개발 환경 설정
 
