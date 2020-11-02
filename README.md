@@ -33,14 +33,17 @@
        src="https://user-images.githubusercontent.com/57824259/78157678-378cdf80-747b-11ea-9363-be3266f92eab.png">
 </div>
 
+## 구현  
+
+BGM, IMAGE, GAMETIME(문제 푸는데 걸린 시간) - Thread 사용
+힌트 및 난이도별 문제 가져오기 - File, Random
+플레이어 입력 및 문제맞춤 여부 - StringBuffer & 알고리즘 구현(일치시 문자열 replace)
+입력 버튼 - KeyAdapter()
+
 ## 개발 환경 설정
 
 모든 개발 의존성 설치 방법과 자동 테스트 슈트 실행 방법을 운영체제 별로 작성합니다.
 
-```sh
-make install
-npm test
-```
 
 ## 업데이트 내역
 
@@ -50,8 +53,6 @@ npm test
 ## 정보
 
  yoonwooseong – dntjd851@naver.com
-
-MIT 라이센스를 준수하며 ``LICENSE``에서 자세한 정보를 확인할 수 있습니다.
 
 [https://github.com/yoonwooseong/github-link](https://github.com/yoonwooseong/)
 
@@ -63,10 +64,3 @@ MIT 라이센스를 준수하며 ``LICENSE``에서 자세한 정보를 확인할
 4. (`git push origin feature/fooBar`) 명령어로 브랜치에 푸시하세요. 
 5. 풀리퀘스트를 보내주세요.
 
-<!-- Markdown link & img dfn's -->
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
