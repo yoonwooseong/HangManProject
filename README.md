@@ -5,10 +5,8 @@
 
 <img class="startPage" width="300" alt="startPage" title="startPage"
        src="https://user-images.githubusercontent.com/57824259/78157201-a87fc780-747a-11ea-9fb9-3113e3bf02c9.png">
-
-## 설치 방법
-
-윈도우 : JAVA  jdk-8u231-windows-x64 / eclipse   eclipse-inst-win64
+       
+<br>
 
 ## Screenshots 및 기능
 
@@ -29,9 +27,11 @@
        src="https://user-images.githubusercontent.com/57824259/78157668-32c82b80-747b-11ea-8a53-1b5c4112edbb.png">
   <img class="success" width="200" alt="success" title="success"
        src="https://user-images.githubusercontent.com/57824259/78157671-3491ef00-747b-11ea-83b4-007a50ca1744.png">
-  <img class="fail" width="200" alt="fail" title="fail"
-       src="https://user-images.githubusercontent.com/57824259/78157678-378cdf80-747b-11ea-9363-be3266f92eab.png">
+<!--   <img class="fail" width="200" alt="fail" title="fail"
+       src="https://user-images.githubusercontent.com/57824259/78157678-378cdf80-747b-11ea-9363-be3266f92eab.png"> -->
 </div>
+
+<br>
 
 ## 구현  
 
@@ -40,21 +40,31 @@
  - 플레이어 입력 및 문제맞춤 여부 - StringBuffer & 알고리즘 구현(일치시 문자열 replace)  
  - 입력 버튼 - KeyAdapter()  
 
+<br>
+
 ## 개발 환경 설정
 
 모든 개발 의존성 설치 방법과 자동 테스트 슈트 실행 방법을 운영체제 별로 작성합니다.
-
+```
+JAVA : jdk-8u231-windows-x64
+eclipse : eclipse-inst-win64
+```
+<br>
 
 ## 업데이트 내역
 
 * 0.0.0
     * 프로젝트 완성 및 발표
 
+<br>
+
 ## 정보
 
  yoonwooseong – dntjd851@naver.com
 
 [https://github.com/yoonwooseong/github-link](https://github.com/yoonwooseong/)
+
+<br>
 
 ## 기여 방법
 
