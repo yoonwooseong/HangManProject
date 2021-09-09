@@ -1,14 +1,14 @@
-# HangManProject
-> JAVA 언어만을 가지고 UI로 행맨게임을 구현해보기.
+# HangMan
+> Java 언어만을 가지고 UI로 행맨게임을 구현해보기.
 
-우리가 배운 JAVA언어를 가지고 구현할 수 있는 기능들을 최대한 활용해 하나의 게임을 구현하고자 알파벳 갯수에 따른 단어를 맞추는 행맨게임을 UI를 통해 구현하고자 하였다.
+ Java로 구현할 수 있는 기능들을 활용해 하나의 게임을 만들어보고자 알파벳 갯수에 따른 단어를 맞추는 행맨 게임을 구현하였다.
 
 <img class="startPage" width="300" alt="startPage" title="startPage"
        src="https://user-images.githubusercontent.com/57824259/78157201-a87fc780-747a-11ea-9fb9-3113e3bf02c9.png">
        
 <br>
 
-## Screenshots 및 기능
+## 🖥 UI & 기능
 
 <div>
   <img class="startPage" width="200" alt="startPage" title="startPage"
@@ -33,7 +33,7 @@
 
 <br>
 
-## 구현  
+## 🔨 구현  
 
  - BGM, IMAGE, GAMETIME(문제 푸는데 걸린 시간) - Thread 사용  
  - 힌트 및 난이도별 문제 가져오기 - File, Random  
@@ -42,23 +42,24 @@
 
 <br>
 
-## 개발 환경 설정
+## ⚙ 개발 환경 설정
 
-모든 개발 의존성 설치 방법과 자동 테스트 슈트 실행 방법을 운영체제 별로 작성합니다.
+ 모든 개발 의존성 설치 방법과 자동 테스트 슈트 실행 방법을 운영체제 별로 작성합니다.
+ 
 ```
 JAVA : jdk-8u231-windows-x64
 eclipse : eclipse-inst-win64
 ```
 <br>
 
-## 업데이트 내역
+## 📃 업데이트 내역
 
 * 0.0.0
     * 프로젝트 완성 및 발표
 
 <br>
 
-## 정보
+## 🔉 정보
 
  yoonwooseong – dntjd851@naver.com
 
@@ -66,7 +67,7 @@ eclipse : eclipse-inst-win64
 
 <br>
 
-## 기여 방법
+## 🙎‍♂️ 기여 방법
 
 1. (<https://github.com/yourname/yourproject/fork>)을 포크합니다.
 2. (`git checkout -b feature/fooBar`) 명령어로 새 브랜치를 만드세요.
