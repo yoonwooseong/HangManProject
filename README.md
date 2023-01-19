@@ -1,11 +1,22 @@
 # HangMan
 > Java 언어만을 가지고 UI로 행맨게임을 구현해보기.
+  
+<br>
 
- Java로 구현할 수 있는 기능들을 활용해 하나의 게임을 만들어보고자 알파벳 갯수에 따른 단어를 맞추는 행맨 게임을 구현하였다.
-
-<img class="startPage" width="300" alt="startPage" title="startPage"
+<p align="center">
+ <img class="startPage" width="250" alt="startPage" title="startPage"
        src="https://user-images.githubusercontent.com/57824259/78157201-a87fc780-747a-11ea-9fb9-3113e3bf02c9.png">
-       
+</p>
+
+<br>
+
+## 🔨 기술 스택 및 구현 방식
+ - Language : `Java`
+ - Thread 사용 - BGM, IMAGE, GAMETIME(문제 푸는데 걸린 시간)   
+ - StringBuffer & replace :플레이어 입력 및 문제맞춤 여부
+ - File, Random - 힌트 및 난이도별 문제 가져오기
+ - KeyAdapter = 입력 이벤트 버튼
+
 <br>
 
 ## 🖥 UI & 기능
@@ -30,15 +41,6 @@
 <!--   <img class="fail" width="200" alt="fail" title="fail"
        src="https://user-images.githubusercontent.com/57824259/78157678-378cdf80-747b-11ea-9363-be3266f92eab.png"> -->
 </div>
-
-<br>
-
-## 🔨 구현  
-
- - BGM, IMAGE, GAMETIME(문제 푸는데 걸린 시간) - Thread 사용  
- - 힌트 및 난이도별 문제 가져오기 - File, Random  
- - 플레이어 입력 및 문제맞춤 여부 - StringBuffer & 알고리즘 구현(일치시 문자열 replace)  
- - 입력 버튼 - KeyAdapter()  
 
 <br>
 
